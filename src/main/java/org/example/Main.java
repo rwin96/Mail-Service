@@ -9,7 +9,7 @@ public class Main {
         int choice;
 
         // Khodam ba in test kardam ino gozashtam ke halate defaultesh bashe
-        EmailSettings settings = EmailSettings.create("smtp.gmail.com", EncryptionType.Plain, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
+        EmailSettings settings = EmailSettings.create("smtp.gmail.com", EncryptionType.TLS, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
 
         EmailService emailService = new EmailService();
 
