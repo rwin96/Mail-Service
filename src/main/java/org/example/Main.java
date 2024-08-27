@@ -1,6 +1,5 @@
 package org.example;
 
-import javax.mail.MessagingException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
         int choice;
 
         // Khodam ba in test kardam ino gozashtam ke halate defaultesh bashe
-        EmailSettings settings = EmailSettings.create("smtp.gmail.com", 587, EncryptionType.TLS, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
+        EmailSettings settings = EmailSettings.create("smtp.gmail.com", EncryptionType.SSL, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
 
         EmailService emailService = new EmailService();
 
@@ -50,9 +49,10 @@ public class Main {
                     System.out.println("Please select encryption type: ");
                     System.out.println("1-TLS");
                     System.out.println("2-SSL");
+                    System.out.println("3-Plain");
                     String type = scanner.next();
                     EncryptionType encryptionType = null;
-                    if (type.trim().strip().equalsIgnoreCase("1")) encryptionType = EncryptionType.TLS;
+                    if (type.trim().strip().equalsIgnoreCase("3")) encryptionType = EncryptionType.Plain;
                     else if (type.trim().strip().equalsIgnoreCase("2")) encryptionType = EncryptionType.SSL;
                     else encryptionType = EncryptionType.TLS;
                     System.out.print("Please enter your email username: ");
@@ -60,7 +60,7 @@ public class Main {
                     System.out.print("Please enter your email password: ");
                     String password = scanner.next();
 
-                    EmailSettings.update(host, Integer.parseInt(port), encryptionType, email, password);
+                    EmailSettings.update(host, encryptionType, email, password);
                     System.out.println();
                     System.out.println("Done");
                     System.out.println();

@@ -1,5 +1,5 @@
 package org.example;
 
 public enum EncryptionType {
-    SSL, TLS
+    SSL, TLS, Plain
 }

@@ -19,12 +19,18 @@ public class EmailSettings {
     }
 
     // CRUD
-    public static EmailSettings create(String serverAddress, int port, EncryptionType encryptionType, String username, String password) {
+    public static EmailSettings create(String serverAddress, EncryptionType encryptionType, String username, String password) {
         EmailService.setFlag(true);
         EmailSettings settings = getInstance();
         settings.setServerAddress(serverAddress);
-        settings.setPort(port);
         settings.setEncryptionType(encryptionType);
+        if (settings.getEncryptionType() == EncryptionType.Plain) {
+            settings.setPort(80);
+        } else if (settings.getEncryptionType() == EncryptionType.SSL) {
+            settings.setPort(465);
+        } else {
+            settings.setPort(587);
+        }
         settings.setUsername(username);
         settings.setPassword(password);
         return settings;
@@ -34,11 +40,17 @@ public class EmailSettings {
         return getInstance();
     }
 
-    public static EmailSettings update(String serverAddress, int port, EncryptionType encryptionType, String username, String password) {
+    public static EmailSettings update(String serverAddress, EncryptionType encryptionType, String username, String password) {
         EmailService.setFlag(true);
         EmailSettings settings = getInstance();
         settings.setServerAddress(serverAddress);
-        settings.setPort(port);
+        if (settings.getEncryptionType() == EncryptionType.Plain) {
+            settings.setPort(80);
+        } else if (settings.getEncryptionType() == EncryptionType.SSL) {
+            settings.setPort(465);
+        } else {
+            settings.setPort(587);
+        }
         settings.setEncryptionType(encryptionType);
         settings.setUsername(username);
         settings.setPassword(password);
