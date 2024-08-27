@@ -25,7 +25,7 @@ public class EmailSettings {
         settings.setServerAddress(serverAddress);
         settings.setEncryptionType(encryptionType);
         if (settings.getEncryptionType() == EncryptionType.Plain) {
-            settings.setPort(80);
+            settings.setPort(25);
         } else if (settings.getEncryptionType() == EncryptionType.SSL) {
             settings.setPort(465);
         } else {
@@ -45,7 +45,7 @@ public class EmailSettings {
         EmailSettings settings = getInstance();
         settings.setServerAddress(serverAddress);
         if (settings.getEncryptionType() == EncryptionType.Plain) {
-            settings.setPort(80);
+            settings.setPort(25);
         } else if (settings.getEncryptionType() == EncryptionType.SSL) {
             settings.setPort(465);
         } else {

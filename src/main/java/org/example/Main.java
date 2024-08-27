@@ -9,7 +9,7 @@ public class Main {
         int choice;
 
         // Khodam ba in test kardam ino gozashtam ke halate defaultesh bashe
-        EmailSettings settings = EmailSettings.create("smtp.gmail.com", EncryptionType.SSL, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
+        EmailSettings settings = EmailSettings.create("smtp.gmail.com", EncryptionType.Plain, "aryaei13833@gmail.com", "vzndknygjfxlsggj");
 
         EmailService emailService = new EmailService();
 
@@ -44,8 +44,6 @@ public class Main {
                 case 2:
                     System.out.print("Please enter server address: ");
                     String host = scanner.next();
-                    System.out.print("Please enter server port: ");
-                    String port = scanner.next();
                     System.out.println("Please select encryption type: ");
                     System.out.println("1-TLS");
                     System.out.println("2-SSL");

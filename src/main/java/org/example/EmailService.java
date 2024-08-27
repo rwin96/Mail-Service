@@ -40,6 +40,7 @@ public class EmailService {
         properties.put("mail.smtp.host", settings.getServerAddress());
 
         if (settings.getEncryptionType() == EncryptionType.Plain) {
+            properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.smtp.port", String.valueOf(settings.getPort()));
         } else if (settings.getEncryptionType() == EncryptionType.SSL) {
             properties.put("mail.smtp.socketFactory.port", String.valueOf(settings.getPort()));
